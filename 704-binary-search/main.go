@@ -6,11 +6,25 @@ import "fmt"
 // If target exists, then return its index. Otherwise, return -1.
 // You must write an algorithm with O(log n) runtime complexity.
 func search(nums []int, target int) int {
-	for i, v := range nums {
-		if v == target {
-			return i
+	half := len(nums) / 2
+	if nums[half] == target {
+		return half
+	}
+
+	if target < nums[half] {
+		for i := half; i >= 0; i-- {
+			if nums[i] == target {
+				return i
+			}
+		}
+	} else {
+		for i := half; i < len(nums); i++ {
+			if nums[i] == target {
+				return i
+			}
 		}
 	}
+
 	return -1
 }
 
