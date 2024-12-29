@@ -1,6 +1,6 @@
 # LeetCode
 
-LeetCode Problems' Solutions
+LeetCode Problem's Solutions
 
 | #   | Title         | Solution                                                                               | Difficulty |
 | --- | ------------- | -------------------------------------------------------------------------------------- | ---------- |
