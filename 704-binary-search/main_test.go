@@ -25,6 +25,36 @@ func TestSearch(t *testing.T) {
 			target:   2,
 			expected: -1,
 		},
+		{
+			name:     "Single element found",
+			nums:     []int{5},
+			target:   5,
+			expected: 0,
+		},
+		{
+			name:     "Single element not found",
+			nums:     []int{5},
+			target:   1,
+			expected: -1,
+		},
+		{
+			name:     "Target at beginning",
+			nums:     []int{1, 2, 3, 4, 5},
+			target:   1,
+			expected: 0,
+		},
+		{
+			name:     "Target at end",
+			nums:     []int{1, 2, 3, 4, 5},
+			target:   5,
+			expected: 4,
+		},
+		{
+			name:     "Empty array",
+			nums:     []int{},
+			target:   1,
+			expected: -1,
+		},
 	}
 
 	for _, tc := range testCases {

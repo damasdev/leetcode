@@ -4,6 +4,10 @@ package main
 // If target exists, then return its index. Otherwise, return -1.
 // You must write an algorithm with O(log n) runtime complexity.
 func Search(nums []int, target int) int {
+	if len(nums) == 0 {
+		return -1
+	}
+
 	half := len(nums) / 2
 	if nums[half] == target {
 		return half
