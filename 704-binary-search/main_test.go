@@ -1,4 +1,4 @@
-package search_test
+package main_test
 
 import (
 	"testing"
@@ -6,7 +6,6 @@ import (
 	search "github.com/damasdev/leetcode/704-binary-search"
 )
 
-// TestSearch tests the Search function from the search package
 func TestSearch(t *testing.T) {
 	testCases := []struct {
 		name     string
