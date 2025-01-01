@@ -36,6 +36,36 @@ var testCases = []struct {
 		target:   6,
 		expected: []int{0, 1},
 	},
+	{
+		name:     "Empty array",
+		nums:     []int{},
+		target:   1,
+		expected: []int{},
+	},
+	{
+		name:     "Single element array",
+		nums:     []int{2},
+		target:   2,
+		expected: []int{},
+	},
+	{
+		name:     "No solution exists",
+		nums:     []int{1, 2, 3, 4},
+		target:   10,
+		expected: []int{},
+	},
+	{
+		name:     "Negative numbers",
+		nums:     []int{-1, -2, -3, -4},
+		target:   -7,
+		expected: []int{2, 3},
+	},
+	{
+		name:     "Large numbers",
+		nums:     []int{1000000, 2000000, 3000000},
+		target:   5000000,
+		expected: []int{1, 2},
+	},
 }
 
 // TestTwoSum tests the basic implementation of the Two Sum solution.
@@ -45,11 +75,12 @@ func TestTwoSum(t *testing.T) {
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
 			got := twosum.TwoSum(tc.nums, tc.target)
-			if len(got) != 2 {
+			if len(got) != len(tc.expected) {
 				t.Errorf("TwoSum(%v, %d) = %v, want %v", tc.nums, tc.target, got, tc.expected)
+				return
 			}
 
-			if got[0] != tc.expected[0] || got[1] != tc.expected[1] {
+			if len(got) == 2 && (got[0] != tc.expected[0] || got[1] != tc.expected[1]) {
 				t.Errorf("TwoSum(%v, %d) = %v, want %v", tc.nums, tc.target, got, tc.expected)
 			}
 		})
@@ -63,11 +94,12 @@ func TestOptimizedTwoSum(t *testing.T) {
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
 			got := twosum.OptimizedTwoSum(tc.nums, tc.target)
-			if len(got) != 2 {
+			if len(got) != len(tc.expected) {
 				t.Errorf("OptimizedTwoSum(%v, %d) = %v, want %v", tc.nums, tc.target, got, tc.expected)
+				return
 			}
 
-			if got[0] != tc.expected[0] || got[1] != tc.expected[1] {
+			if len(got) == 2 && (got[0] != tc.expected[0] || got[1] != tc.expected[1]) {
 				t.Errorf("OptimizedTwoSum(%v, %d) = %v, want %v", tc.nums, tc.target, got, tc.expected)
 			}
 		})
