@@ -6,7 +6,7 @@ import (
 	search "github.com/damasdev/leetcode/35-search-insert-position"
 )
 
-func TestSearch(t *testing.T) {
+func TestSearchInsert(t *testing.T) {
 	testCases := []struct {
 		name     string
 		nums     []int
@@ -37,7 +37,7 @@ func TestSearch(t *testing.T) {
 		t.Run(tc.name, func(t *testing.T) {
 			got := search.SearchInsert(tc.nums, tc.target)
 			if got != tc.expected {
-				t.Errorf("Search(%v, %d) = %d, want %d", tc.nums, tc.target, got, tc.expected)
+				t.Errorf("SearchInsert(%v, %d) = %d, want %d", tc.nums, tc.target, got, tc.expected)
 			}
 		})
 	}
